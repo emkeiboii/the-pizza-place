@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 
 // https://uibakery.io/regex-library/phone-number
