@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Username from '../user/Username';
+import Button from '../../ui/Button';
 
 function CartOverview() {
   return (
@@ -11,7 +12,9 @@ function CartOverview() {
         <span>23 pizzas</span>
         <span>$23.45</span>
       </p>
-      <Link to="/cart">Open cart &rarr;</Link>
+      <Button to="/cart" type="small">
+        Open cart &rarr;
+      </Button>
     </div>
   );
 }
