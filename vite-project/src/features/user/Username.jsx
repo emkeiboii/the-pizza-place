@@ -5,7 +5,7 @@ function Username() {
 
   return (
     <div className="hidden text-sm font-semibold md:block">
-      {userName !== '' ? userName : '👤'}
+      {userName !== '' ? userName : <p className=" drop-shadow-lg">👤</p>}
     </div>
   );
 }
