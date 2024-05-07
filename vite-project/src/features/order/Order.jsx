@@ -7,10 +7,12 @@ import {
   formatDate,
 } from '../../utils/helpers';
 import { useEffect } from 'react';
+import UpdateOrder from './UpdateOrder';
+import { useSelector } from 'react-redux';
+import { getTotalCartPrice } from '../cart/cartSlice';
 
 function Order() {
   const order = useLoaderData();
-
   const fetcher = useFetcher();
 
   useEffect(
@@ -33,8 +35,8 @@ function Order() {
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
-    <div className="space-y-8 px-4 py-6">
-      <div className="flex flex-wrap items-center justify-between gap-2">
+    <div className=" space-y-8 px-4 py-6">
+      <div className=" flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-xl font-semibold">Order #{id} status</h2>
 
         <div className="space-x-2">
@@ -83,10 +85,13 @@ function Order() {
             Price priority: {formatCurrency(priorityPrice)}
           </p>
         )}
+
         <p className="font-bold">
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} orderPrice={orderPrice} />}
     </div>
   );
 }
